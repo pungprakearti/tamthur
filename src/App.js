@@ -5,10 +5,25 @@ import Top from './Top';
 import RSVP from './RSVP';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: 'August 3rd, 2019',
+      endDate: 'June 1st, 2019',
+      venue: {
+        name: 'Legends of Bennett Valley',
+        street: '3328 Yulupa Avenue',
+        city: 'Santa Rosa',
+        state: 'California',
+        zip: '95405'
+      }
+    };
+  }
+
   render() {
     return (
       <div className="App">
-        <Top />
+        <Top date={this.state.date} venue={this.state.venue} />
         <Switch>
           <Route exact path="/" render={() => 'home page'} />
           <Route exact path="/venue" render={() => 'venue'} />
@@ -16,7 +31,17 @@ class App extends Component {
           <Route exact path="/contact" render={() => 'contact'} />
 
           {/* rsvp isn't in the navbar because we don't want people inviting themselves */}
-          <Route exact path="/rsvp" render={() => <RSVP />} />
+          <Route
+            exact
+            path="/rsvp"
+            render={() => (
+              <RSVP
+                date={this.state.date}
+                endDate={this.state.endDate}
+                venue={this.state.venue}
+              />
+            )}
+          />
 
           {/* 404 Page */}
           <Route render={() => '404'} />
