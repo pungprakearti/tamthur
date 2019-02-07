@@ -24,6 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         <Top date={this.state.date} venue={this.state.venue} />
+
         <Switch>
           {/* <Route exact path="/" render={() => 'home page'} />
           <Route exact path="/venue" render={() => 'venue'} />

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './RSVP.scss';
 
 export default class RSVP extends Component {
   constructor(props) {
@@ -16,15 +17,24 @@ export default class RSVP extends Component {
           and
           <div className="RSVP-name">Arthur Pungprakearti</div>
         </div>
-        {/* {this.props.date}
-        {this.props.address} */}
         <div className="RSVP-end">Please RSVP by {this.props.endDate}</div>
-        <div className="RSVP-yesorno">
-          <div className="RSVP-option">Accept with pleasure</div>
-          <div className="RSVP-option">Decline with regret</div>
+        <div className="RSVP-options-cont">
+          <div className="RSVP-options-box">
+            <div className="RSVP-option">
+              <div className="RSVP-option-question">Accept with pleasure</div>
+              <div className="RSVP-option-answer">____</div>
+            </div>
+            <div className="RSVP-option">
+              <div className="RSVP-option-question">Decline with regret</div>
+              <div className="RSVP-option-answer">____</div>
+            </div>
+            <div className="RSVP-option">
+              <div className="RSVP-option-question">Bringing a guest?</div>
+              <div className="RSVP-option-answer">____</div>
+            </div>
+          </div>
         </div>
-        <div className="RSVP-option">Bringing a guest?</div>
-        <button>Submit</button>
+        <div>Submit Response</div>
       </div>
     );
   }
