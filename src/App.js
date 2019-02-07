@@ -26,10 +26,10 @@ class App extends Component {
         <Top date={this.state.date} venue={this.state.venue} />
 
         <Switch>
-          {/* <Route exact path="/" render={() => 'home page'} />
+          <Route exact path="/" render={() => 'home page'} />
           <Route exact path="/venue" render={() => 'venue'} />
           <Route exact path="/registry" render={() => 'registry'} />
-          <Route exact path="/contact" render={() => 'contact'} /> */}
+          <Route exact path="/contact" render={() => 'contact'} />
 
           {/* rsvp isn't in the navbar because we don't want people inviting themselves */}
           <Route
