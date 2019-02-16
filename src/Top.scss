@@ -7,6 +7,7 @@
   justify-content: center;
   background-color: $bg;
   color: $hText;
+  width: calc(100vw + 2px);
 }
 
 .Top-header {
@@ -59,6 +60,8 @@
   align-items: column;
   justify-content: center;
   background-color: pink;
+  padding: 5px;
+  box-shadow: 0 2px 10px $shad;
 }
 
 .Top-navbar-text {
@@ -74,7 +77,7 @@
 .Top-navbar-text > a,
 .Top-navbar-text > a:hover,
 .Top-navbar-text > a:visited {
-  color: black;
+  color: $linkC;
   text-decoration: none;
   transition: all 0.25s linear;
   padding-left: 10px;
