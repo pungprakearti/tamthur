@@ -111,10 +111,6 @@ export default class RSVP extends Component {
         </div>
         <div className="RSVP-disclaimer">
           *The wedding is an adults only event.
-          <br />
-          Please leave your little assholes at home.
-          <br />
-          We're going toptional bitches!
         </div>
       </React.Fragment>
     );

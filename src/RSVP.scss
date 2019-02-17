@@ -13,6 +13,7 @@
   height: 370px;
   border-radius: 5px;
   box-shadow: 0 2px 10px $shad;
+  user-select: none;
 }
 
 .RSVP-name {
@@ -69,6 +70,7 @@
   height: 25px;
   border: 1px dashed $pLineC;
   position: relative;
+  cursor: pointer;
 }
 
 .RSVP-option-answer > img {
@@ -103,4 +105,5 @@
   font-size: 18px;
   width: 300px;
   opacity: 0.75;
+  user-select: none;
 }
