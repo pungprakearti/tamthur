@@ -7,7 +7,6 @@
   justify-content: center;
   background-color: $bg;
   color: $hText;
-  width: calc(100vw + 2px);
 }
 
 .Top-header {
@@ -55,11 +54,12 @@
 }
 
 .Top-navbar {
+  box-sizing: border-box;
   width: 100%;
   display: flex;
   align-items: column;
   justify-content: center;
-  background-color: pink;
+  background-color: $pinkText;
   padding: 5px;
   box-shadow: 0 2px 10px $shad;
 }
@@ -86,7 +86,8 @@
 }
 
 .Top-navbar-text > a:hover {
-  background-color: white;
+  background-color: $bg3;
+  color: $pText;
 }
 
 .Top-roses {
