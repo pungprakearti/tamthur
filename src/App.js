@@ -32,7 +32,7 @@ class App extends Component {
           <Route exact path="/contact" render={() => 'contact'} />
 
           {/* rsvp isn't in the navbar because we don't want people inviting themselves */}
-          <Route
+          {/* <Route
             path="/rsvp/:name"
             render={props => (
               <RSVP
@@ -42,7 +42,20 @@ class App extends Component {
                 {...props}
               />
             )}
+          /> */}
+
+          <Route
+            path="/rsvp"
+            render={props => (
+              <RSVP
+                date={this.state.date}
+                endDate={this.state.endDate}
+                venue={this.state.venue}
+                {...props}
+              />
+            )}
           />
+
           {/* 404 Page */}
           <Route render={() => '404'} />
         </Switch>
