@@ -5,9 +5,17 @@ import './RSVP.scss';
 export default class RSVP extends Component {
   constructor(props) {
     super(props);
-    this.state = { accept: false, decline: false, guest: false };
+    this.state = {
+      accept: false,
+      decline: false,
+      guest: false,
+      firstName: '',
+      lastName: ''
+    };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleFirst = this.handleFirst.bind(this);
+    this.handleLast = this.handleLast.bind(this);
   }
 
   handleClick(evt) {
@@ -33,12 +41,17 @@ export default class RSVP extends Component {
         this.setState({ guest: false });
       }
     }
+  }
 
-    //if blank for accept or decline, then toggle
+  handleFirst(evt) {
+    this.setState({ firstName: evt.target.value });
+  }
+
+  handleLast(evt) {
+    this.setState({ lastName: evt.target.value });
   }
 
   render() {
-    console.log(this.props.match.params.name);
     return (
       <React.Fragment>
         <div className="RSVP-cont">
@@ -51,6 +64,22 @@ export default class RSVP extends Component {
           <div className="RSVP-end">Please RSVP by {this.props.endDate}</div>
           <div className="RSVP-options-cont">
             <div className="RSVP-options-box">
+              <form>
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First name"
+                  onChange={this.handleFirst}
+                  value={this.state.firstName}
+                />
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last name"
+                  onChange={this.handleLast}
+                  value={this.state.lastName}
+                />
+              </form>
               <div className="RSVP-option">
                 <div className="RSVP-option-question">Accept with pleasure</div>
                 <div

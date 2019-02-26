@@ -10,7 +10,7 @@
   justify-content: center;
   background-color: $bg3;
   width: 300px;
-  height: 370px;
+  height: 500px;
   border-radius: 5px;
   box-shadow: 0 2px 10px $shad;
   user-select: none;
@@ -19,7 +19,7 @@
 .RSVP-name {
   color: $pinkText;
   font-family: $headerff;
-  font-size: 34px;
+  font-size: 38px;
 }
 
 .RSVP-name.tammy {
@@ -31,8 +31,12 @@
 }
 
 .RSVP-and {
-  margin-top: -5px;
+  margin-top: -8px;
   line-height: 20px;
+}
+
+.RSVP-end {
+  margin-bottom: 10px;
 }
 
 .RSVP-option {
@@ -57,6 +61,7 @@
   padding: 5px;
   box-sizing: border-box;
   width: 280px;
+  border-radius: 3px;
 }
 
 .RSVP-options-cont {
@@ -107,4 +112,26 @@
   width: 300px;
   opacity: 0.75;
   user-select: none;
+}
+
+.RSVP-options-box > form > input {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px dashed $pLineC;
+  width: 89%;
+  padding: 5px;
+  margin-top: 8px;
+  box-sizing: border-box;
+  font-family: $linkff;
+  font-size: 20px;
+  color: $pText;
+  border-radius: 3px;
+  outline: none;
+}
+
+.RSVP-options-box > form > input::placeholder {
+  color: $pLineC;
+}
+
+.RSVP-options-box > form {
+  margin-bottom: 5px;
 }
