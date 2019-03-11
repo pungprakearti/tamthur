@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import './App.css';
-import { Route, Switch } from 'react-router-dom';
-import Top from './Top';
-import RSVP from './RSVP';
+import React, { Component } from 'react'
+import './App.css'
+import { Route, Switch } from 'react-router-dom'
+import Top from './Top'
+import RSVP from './RSVP'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       date: 'August 3rd, 2019',
       endDate: 'June 1st, 2019',
@@ -17,7 +17,7 @@ class App extends Component {
         state: 'California',
         zip: '95405'
       }
-    };
+    }
   }
 
   render() {
@@ -30,20 +30,6 @@ class App extends Component {
           <Route exact path="/venue" render={() => 'venue'} />
           <Route exact path="/registry" render={() => 'registry'} />
           <Route exact path="/contact" render={() => 'contact'} />
-
-          {/* rsvp isn't in the navbar because we don't want people inviting themselves */}
-          {/* <Route
-            path="/rsvp/:name"
-            render={props => (
-              <RSVP
-                date={this.state.date}
-                endDate={this.state.endDate}
-                venue={this.state.venue}
-                {...props}
-              />
-            )}
-          /> */}
-
           <Route
             path="/rsvp"
             render={props => (
@@ -60,8 +46,8 @@ class App extends Component {
           <Route render={() => '404'} />
         </Switch>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
