@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import check from './check.png'
 import './RSVP.scss'
+import Modal from './Modal'
+import Message from './Message'
 
 export default class RSVP extends Component {
   constructor(props) {
@@ -10,7 +12,8 @@ export default class RSVP extends Component {
       decline: false,
       guest: false,
       firstName: '',
-      lastName: ''
+      lastName: '',
+      error: false
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -70,17 +73,44 @@ export default class RSVP extends Component {
         attending = 0
       }
 
-      let req = `https://script.google.com/macros/s/${ID}/exec?key=${key}&first=${firstName}&last=${lastName}&attending=${attending}&timestamp=${date}`
+      let req = `https://script.yahoo.com/macros/s/${ID}/exec?key=${key}&first=${firstName}&last=${lastName}&attending=${attending}&timestamp=${date}`
 
       fetch(req)
-      this.props.history.replace('/thanks')
+        .then(() => {
+          console.log('ok')
+          this.props.history.replace('/thanks')
+        })
+        .catch(err => {
+          console.log('err: ', err)
+          this.setState({ error: true }, () => {
+            setTimeout(() => {
+              this.setState({ error: false })
+            }, 5000)
+          })
+          // <Modal><div>ERROR HOMIE!</div></Modal>
+        })
+
+      //Need try accept for this fetch request
+      //https://stackoverflow.com/questions/33355033/try-catch-not-catching-async-await-errors
     }
   }
 
   render() {
-    const { firstName, lastName, accept, decline, guest } = this.state
+    const { firstName, lastName, accept, decline, guest, error } = this.state
     return (
       <React.Fragment>
+        {error ? (
+          <Modal>
+            <Message
+              line1="There was an issue with your RSVP."
+              line2="Please try again later."
+            />
+          </Modal>
+        ) : (
+          <Modal>
+            <Message line1="Your RSVP has been submitted." line2="Thank you!" />
+          </Modal>
+        )}
         <div className="RSVP-cont">
           <div className="RSVP-header">
             You're invited to the wedding of
