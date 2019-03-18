@@ -9,14 +9,15 @@ export default class Message extends Component {
           <div className="Message__outer">
             <div className="Message__textCont">
               <div className="Message__text">
-                {/* There was an issue with your RSVP. */}
                 {this.props.line1}
                 <br />
                 <br />
-                {/* Please try again later. */}
                 {this.props.line2}
               </div>
             </div>
+          </div>
+          <div className="Message__redirect">
+            Redirecting in 5 seconds or <a href="/">Click Here</a>
           </div>
         </div>
       </div>

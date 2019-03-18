@@ -13,13 +13,25 @@ export default class RSVP extends Component {
       guest: false,
       firstName: '',
       lastName: '',
-      error: false
+      message: '',
+      rsvp: false
     }
 
     this.handleClick = this.handleClick.bind(this)
     this.handleFirst = this.handleFirst.bind(this)
     this.handleLast = this.handleLast.bind(this)
     this.submitRSVP = this.submitRSVP.bind(this)
+  }
+
+  componentDidMount() {
+    //check if already rsvp'ed on device
+    const rsvp = localStorage.getItem('rsvp')
+    this.setState({ rsvp })
+    if (rsvp) {
+      setTimeout(() => {
+        this.props.history.replace('/')
+      }, 5000)
+    }
   }
 
   handleClick(evt) {
@@ -73,44 +85,65 @@ export default class RSVP extends Component {
         attending = 0
       }
 
-      let req = `https://script.yahoo.com/macros/s/${ID}/exec?key=${key}&first=${firstName}&last=${lastName}&attending=${attending}&timestamp=${date}`
+      let req = `https://script.google.com/macros/s/${ID}/exec?key=${key}&first=${firstName}&last=${lastName}&attending=${attending}&timestamp=${date}`
+
+      //disable submit button
+      this.setState({ accept: false, decline: false })
 
       fetch(req)
         .then(() => {
-          console.log('ok')
-          this.props.history.replace('/thanks')
-        })
-        .catch(err => {
-          console.log('err: ', err)
-          this.setState({ error: true }, () => {
+          //save rsvp variable to local storage to prevent rsvp'ing multiple times
+          localStorage.setItem('rsvp', true)
+          this.setState({ message: 'success' }, () => {
             setTimeout(() => {
-              this.setState({ error: false })
+              this.props.history.replace('/')
             }, 5000)
           })
-          // <Modal><div>ERROR HOMIE!</div></Modal>
         })
-
-      //Need try accept for this fetch request
-      //https://stackoverflow.com/questions/33355033/try-catch-not-catching-async-await-errors
+        .catch(err => {
+          this.setState({ message: 'error' }, () => {
+            setTimeout(() => {
+              this.setState({ message: '' })
+            }, 5000)
+          })
+        })
     }
   }
 
   render() {
-    const { firstName, lastName, accept, decline, guest, error } = this.state
-    return (
-      <React.Fragment>
-        {error ? (
-          <Modal>
-            <Message
-              line1="There was an issue with your RSVP."
-              line2="Please try again later."
-            />
-          </Modal>
-        ) : (
+    const {
+      firstName,
+      lastName,
+      accept,
+      decline,
+      guest,
+      message,
+      rsvp
+    } = this.state
+    let msg
+
+    if (message === 'error') {
+      msg = (
+        <Modal>
+          <Message
+            line1="There was an issue with your RSVP."
+            line2="Please try again later."
+          />
+        </Modal>
+      )
+    } else {
+      if (message === 'success' || rsvp) {
+        msg = (
           <Modal>
             <Message line1="Your RSVP has been submitted." line2="Thank you!" />
           </Modal>
-        )}
+        )
+      }
+    }
+
+    return (
+      <React.Fragment>
+        {msg}
         <div className="RSVP-cont">
           <div className="RSVP-header">
             You're invited to the wedding of
