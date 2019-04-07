@@ -1,0 +1,67 @@
+@import './_config.scss';
+
+.Sign {
+  &_Cont {
+    width: 200px;
+    background-color: $bg4;
+    color: $hText;
+    padding-bottom: 0px;
+    padding-top: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    flex-wrap: 0;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px $shad;
+  }
+
+  &_InAny {
+    margin-top: -14px;
+    font-size: 28px;
+  }
+
+  &_Header {
+    font-family: $oldStand;
+    font-size: 40px;
+    transform: scaleX(0.55);
+    width: 350px;
+  }
+
+  &_You {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: $oldStand;
+    font-size: 50px;
+    transform: scaleX(0.85);
+    margin-top: -18px;
+    margin-bottom:-12px;
+    width:200px;
+  }
+
+  &_Leaf__right {
+    transform: rotate(90deg);
+    width: 40px;
+    margin-top: -10px;
+  }
+
+  &_Leaf__left {
+    transform: rotate(-90deg);
+    width: 40px;
+    margin-top: -10px;
+  }
+
+  &_Serif {
+    font-family: $oldStand;
+    font-size: 24px;
+    margin-top: -4px;
+  }
+
+  &_Cursive {
+    margin-top: -8px;
+    font-size: 28px;
+  }
+}

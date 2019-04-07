@@ -3,6 +3,8 @@ import './App.css'
 import { Route, Switch } from 'react-router-dom'
 import Top from './Top'
 import RSVP from './RSVP'
+import Home from './Home'
+import Venue from './Venue'
 
 class App extends Component {
   constructor(props) {
@@ -26,8 +28,8 @@ class App extends Component {
         <Top date={this.state.date} venue={this.state.venue} />
 
         <Switch>
-          <Route exact path="/" render={() => 'home page'} />
-          <Route exact path="/venue" render={() => 'venue'} />
+          <Route exact path="/" render={() => <Home />} />
+          <Route exact path="/venue" render={() => <Venue />} />
           <Route exact path="/registry" render={() => 'registry'} />
           <Route exact path="/contact" render={() => 'contact'} />
           <Route
