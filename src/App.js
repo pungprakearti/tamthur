@@ -23,24 +23,20 @@ class App extends Component {
   }
 
   render() {
+    const { date, endDate, venue } = this.state
     return (
       <div className="App">
-        <Top date={this.state.date} venue={this.state.venue} />
+        <Top date={date} venue={venue} />
 
         <Switch>
           <Route exact path="/" render={() => <Home />} />
-          <Route exact path="/venue" render={() => <Venue />} />
+          <Route exact path="/venue" render={() => <Venue venue={venue} />} />
           <Route exact path="/registry" render={() => 'registry'} />
           <Route exact path="/contact" render={() => 'contact'} />
           <Route
             path="/rsvp"
             render={props => (
-              <RSVP
-                date={this.state.date}
-                endDate={this.state.endDate}
-                venue={this.state.venue}
-                {...props}
-              />
+              <RSVP date={date} endDate={endDate} venue={venue} {...props} />
             )}
           />
 
