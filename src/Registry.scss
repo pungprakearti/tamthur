@@ -1,14 +1,28 @@
 @import './_config.scss';
 
-.Home {
+.Registry{
   &_Cont{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
+  }
+
+  &_Text{
     font-family: $cardo;
     font-size: 20px;
+    max-width: 500px;
+    height: 100%;
+    text-align: left;
+
+    @media only screen and (max-width: 850px) {
+      width: 90%;
+    }
   }
+
+  &_Image{
+    width: 100%;
+  }
+
 }

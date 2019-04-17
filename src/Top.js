@@ -26,7 +26,7 @@ export default class Top extends Component {
             <NavLink to="/">Home</NavLink>
             <NavLink to="/venue">Venue</NavLink>
             <NavLink to="/registry">Registry</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
+            {/* <NavLink to="/contact">Contact</NavLink> */}
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import Top from './Top'
 import RSVP from './RSVP'
 import Home from './Home'
 import Venue from './Venue'
+import Registry from './Registry';
 
 class App extends Component {
   constructor(props) {
@@ -31,8 +32,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => <Home />} />
           <Route exact path="/venue" render={() => <Venue venue={venue} />} />
-          <Route exact path="/registry" render={() => 'registry'} />
-          <Route exact path="/contact" render={() => 'contact'} />
+          <Route exact path="/registry" render={() => <Registry />} />
+          {/* <Route exact path="/contact" render={() => 'contact'} /> */}
           <Route
             path="/rsvp"
             render={props => (
