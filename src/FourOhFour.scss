@@ -1,0 +1,21 @@
+@import './_config.scss';
+
+.FourOhFour {
+  &_Cont {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: $cardo;
+    font-size: 22px;
+
+    @media only screen and (max-width: 850px) {
+      padding: 0;
+      padding: 20px;
+      font-size: 20px;
+    }
+  }
+
+  &_Whoops {
+    font-family: $headerff;
+    font-size: 50px;
+  }
+}

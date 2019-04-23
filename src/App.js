@@ -6,6 +6,7 @@ import RSVP from './RSVP'
 import Home from './Home'
 import Venue from './Venue'
 import Registry from './Registry';
+import FourOhFour from './FourOhFour';
 
 class App extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class App extends Component {
           />
 
           {/* 404 Page */}
-          <Route render={() => '404'} />
+          <Route render={(props) => <FourOhFour {...props} />} />
         </Switch>
       </div>
     )
