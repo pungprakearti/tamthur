@@ -72,7 +72,9 @@ export default class RSVP extends Component {
     const ID = 'AKfycbxd6WLE_mm_EuGt8yeG6g5wZBZXyVpKr2szQyZdIcMXIjJXciwI'
     const key = 'abcdef'
     const d = new Date()
-    const date = `${d.getMonth()}/${d.getDate()}/${d.getFullYear()}`
+    
+    //month needs to be + 1 to be correct month
+    const date = `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`
     let attending
     if (firstName && lastName) {
       //get guest count
