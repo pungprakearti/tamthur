@@ -51,10 +51,10 @@ export default class RSVP extends Component {
     }
 
     if (section === 'guest') {
-      if (!this.state.guest && this.state.accept) {
-        this.setState({ guest: true })
-      } else {
+      if (this.state.guest) {
         this.setState({ guest: false })
+      } else {
+        this.setState({ guest: true, accept: true, decline: false })
       }
     }
   }
@@ -72,7 +72,7 @@ export default class RSVP extends Component {
     const ID = 'AKfycbxd6WLE_mm_EuGt8yeG6g5wZBZXyVpKr2szQyZdIcMXIjJXciwI'
     const key = 'abcdef'
     const d = new Date()
-    
+
     //month needs to be + 1 to be correct month
     const date = `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`
     let attending
@@ -90,7 +90,7 @@ export default class RSVP extends Component {
       let req = `https://script.google.com/macros/s/${ID}/exec?key=${key}&first=${firstName}&last=${lastName}&attending=${attending}&timestamp=${date}`
 
       //disable submit button
-      this.setState({ accept: false, decline: false })
+      this.setState({ accept: false, decline: false, guest: false })
 
       fetch(req)
         .then(() => {
